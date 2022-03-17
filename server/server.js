@@ -18,6 +18,9 @@ app.get('/', (req, res) =>{
 
 })
 let students = []
+app.get('/api/students', (req, res) =>{
+    res.status(200).send(students)
+})
 
 app.post('/api/students', (req, res) =>{
     let {name} = req.body

@@ -19,15 +19,15 @@ app.get('/', (req, res) =>{
 })
 let students = []
 
-app.post('/api/student', (req, res) =>{
+app.post('/api/students', (req, res) =>{
     let {name} = req.body
     name = name.trim()
 
     students.push(name)
-    //roll bar is just a log 
+   
     rollbar.log('student was added succesfully', {author: 'jake', type: 'manual'})
 
-    res.send(200).send(students)
+    res.status(200).send(students)
 })
 
 app.use(rollbar.errorHandler())

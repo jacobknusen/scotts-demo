@@ -21,16 +21,20 @@ app.get('/', (req, res) =>{
     res.sendFile(path.join(__dirname, '../public/index.html'))
 
 })
+app.use(express.static(path.join, '../public/index.html'))
+
 let students = []
+
 app.get('/api/students', (req, res) =>{
     res.status(200).send(students)
 })
+
 const index = students.findIndex(studentName=> studentName === name)
 
 app.post('/api/students', (req, res) =>{
     let {name} = req.body
     name = name.trim()
-
+    //checcking to see if its a vaild index
     const index = students.findIndex(studentName=> studentName === name)
 
     if(index === -1 && name !== ''){

@@ -45,9 +45,9 @@
 
         function submitHandler(evt) {
             evt.preventDefault();
-
+            const body =  { name: nameInput.value }
             axios
-                .post('/api/students', { name: nameInput.value })
+                .post('/api/students', body )
                 .then(res => {
                     putTheThingInTheView(res)
                 })
